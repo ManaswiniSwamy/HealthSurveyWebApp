@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <style>
+      .form-box{
+      color:#5cb55c;
+      }
+      .box-div {
+      border: 1px solid #c1c1c1;
+      color:#5cb55c;
+      }
+      table {
+    border-collapse: collapse;
+    border:3px solid #c1c1c1;
+  }
+
+  th, td {
+    text-align: left;
+     padding: 15px;
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>BBMP Health Survey Form</title>
+  </head>
+  <body>
+    <div class="form-box">
+      <h2 class="text-center">BBMP Health Survey Form</h2>
+      <h5>Please enter your address and contact details.</h5>
+      <form class="needs-validation" novalidate>
+        <div class="form-row ml-2">
+          <div class="form-group col-md-2">
+            <label for="inputFlatNumber">Flat number</label>
+            <input type="text" class="form-control" id="inputFlatNumber" placeholder="888B">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputAddress">Address Line 1</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Apartment, studio, or floor">
+          </div>
+        </div>
+        <div class="form-group col-md-8">
+          <label for="inputAddress2">Address Line 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Street Name, Bilekahalli">
+        </div>
+        <div class="form-row ml-2">
+          <div class="form-group col-md-4">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Zip</label>
+            <input type="tel" class="form-control" id="inputZip">
+          </div>
+        </div>
+        <div class="form-row ml-2">
+          <div class="form-group col-md-4">
+            <label for="inputFamilyPhoneNumber">Phone number</label>
+            <input type="tel" class="form-control" id="inputFamilyPhoneNumber" required>
+            <div class="invalid-feedback">
+              Please provide atleast one of your family member's valid phone.
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputFamilyWhatsAppNumber">WhatsApp number</label>
+            <input type="tel" class="form-control" id="inputFamilyWhatsAppNumber">
+          </div>
+        </div>
+        <h5>Please enter the details of your family members.</h5>
+        <div class="form-row ml-2">
+        <div class="extraPersonTemplate">
+          <table id = "residents" class = "residentsTemplate ml-2">
+              <tr>
+                <td><label for="inputName">Name</label></td>
+                <td><input type="text" class="form-control" id="inputName"></td>
+              </tr>
+             <tr>
+               <td><label for="inputGender">Gender</label></td>
+               <td><input class="form-check-input" type="radio" name="gender" id="Male" value="Male">
+                       <label class="form-check-label" for="Male">Male</label><br>
+
+                   <input class="form-check-input" type="radio" name="gender" id="Female" value="Female">
+                      <label class="form-check-label" for="Female">Female</label><br>
+
+                   <input class="form-check-input" type="radio" name="gender" id="otherGender" value="otherGender">
+                       <label class="form-check-label" for="otherGender">Other</label><br>
+            </tr>
+            <tr>
+              <td><label for="inputPhoneNumber">Phone number</label></td>
+              <td><input type="tel" class="form-control" id="inputPhoneNumber"></td>
+            </tr>
+            <tr>
+              <td><label for="inputWhatsAppNumber">WhatsApp number</label></td>
+              <td><input type="tel" class="form-control" id="inputWhatsAppNumber"></td>
+            </tr>
+            <tr>
+              <td><label for="diseases">Please check the diseases/health conditions that you are suffering from</label></td>
+              <td><input class="form-check-input" type="checkbox" id="pregnantWoman" value="pregnantWoman">
+                  <label class="form-check-label" for="pregnantWoman">Pregnant Woman</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="diabetes" value="diabetes">
+                  <label class="form-check-label" for="diabetes">Diabetes</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="hypertension" value="hypertension">
+                  <label class="form-check-label" for="hypertension">Hypertension</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="tuberculosis" value="tuberculosis">
+                  <label class="form-check-label" for="tuberculosis">Tuberculosis</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="cancer" value="cancer">
+                  <label class="form-check-label" for="cancer">Cancer</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="dialysis" value="dialysis">
+                  <label class="form-check-label" for="dialysis">Dialysis</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="stroke" value="stroke">
+                  <label class="form-check-label" for="stroke">Stroke</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="hivPositive" value="hivPositive">
+                  <label class="form-check-label" for="hivPositive">HIV Positive</label><br>
+
+                  <input class="form-check-input" type="checkbox" id="organTransplant" value="organTransplant">
+                  <label class="form-check-label" for="organTransplant">Organ Transplant</label><br>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="diseases">Do you have any other diseases?Enter any other health issue if you answered yes.</label></td>
+              <td><input type="text" class="form-control" id="inputOtherHealthIssue"></td>
+            </tr></table><br>
+        </div>
+      </div>
+        <div class="container form-row" align="left"></div>
+        <div class="input-group-btn">
+          <button class="btn btn-success addRow" type="button">Add family member</button>
+          <button class="btn btn-danger removeRow" type="button">Remove family member</button>
+        </div>
+        <h5>Please enter the details of your household helps.</h5>
+        <div class="extraHouseholdHelpTemplate">
+          <div class="form-row ml-2">
+            <div class="form-group col-md-4">
+              <label for="inputNameHouseholdHelp">Name</label>
+              <input type="text" class="form-control" id="inputNameHouseholdHelp">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputPhoneNumberHouseholdHelp">Phone number</label>
+              <input type="tel" class="form-control" id="inputPhoneNumberHouseholdHelp">
+            </div>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="inputAddressHouseholdHelp">Address</label>
+            <input type="text" class="form-control" id="inputAddressHouseholdHelp">
+          </div>
+        </div>
+        <div class="containerHouseHelp" align="left"></div>
+        <div class="input-group-btn">
+          <button class="btn btn-success addHouseHelp" type="button">Add household help</button>
+          <button class="btn btn-danger removeHouseHelp" type="button">Remove household help</button>
+        </div>
+        <br><div class="text-center">
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+          </div></br>
+      </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+      })();
+      $(document).ready(function () {
+       $('<div/>', {
+         'class' : 'extraPerson', html: GetHtml()
+       }).appendTo('.container');
+       $(".addRow").click(function () {
+         $('<div/>', {
+           'class' : 'extraPerson', html: GetHtml()
+         }).appendTo('.container');
+       });
+       $('<div/>', {
+         'class' : 'extraHouseHelp', html: GetHtmlHouseHelp()
+       }).appendTo('.containerHouseHelp');
+       $(".addHouseHelp").click(function () {
+         $('<div/>', {
+           'class' : 'extraHouseHelp', html: GetHtmlHouseHelp()
+         }).appendTo('.containerHouseHelp')
+       });
+       $(".removeHouseHelp").click(function () {
+        if($('.extraHouseHelp').length == 1) {
+          alert("Leave this empty if there are no household helps");
+          return false;
+        }
+        $('.containerHouseHelp').children().last().remove();
+      });
+       $(".removeRow").click(function() {
+        if($('.extraPerson').length == 1) {
+          alert("You must fill atleast one person's details");
+          return false;
+        }
+        $(".container").children().last().remove();
+      })
+      });
+
+      function GetHtml()
+      {
+        var len = $('.extraPerson').length;
+        if(len==0)return;
+        console.log(len)
+        var $html = $('.extraPersonTemplate').clone();
+        return $html.html();
+      }
+      function GetHtmlHouseHelp(){
+        var len = $('.extraHouseHelp').length;
+        if(len==0)return;
+        var $html = $('.extraHouseholdHelpTemplate').clone();
+        return $html.html();
+      }
+
+    </script>
+  </body>
+</html>
