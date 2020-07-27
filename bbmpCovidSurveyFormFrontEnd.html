@@ -185,17 +185,11 @@
                       event.preventDefault();
                       event.stopPropagation();
                     }
-                    console.log($('#healthSurveyForm').serialize());
                     form.classList.add('was-validated');
                   }, false);
                 });
               }, false);
       })();
-      $( "form" ).on( "submit", function( event ) {
-        event.preventDefault();
-        var form=$('#healthSurveyForm');
-        console.log(form.serialize());
-        });
       $(document).ready(function () {
        $('<div/>', {
          'class' : 'extraPerson', html: GetHtml()
