@@ -130,8 +130,16 @@
               </td>
             </tr>
             <tr>
-              <td><label for="diseases">Do you have any other diseases?Enter any other health issue if you answered yes.</label></td>
-              <td><input type="text" class="form-control" name="inputOtherHealthIssue" id="inputOtherHealthIssue"></td>
+              <td>Do you have any other diseases?</td>
+              <td><input class="form-check-input" type="radio" name="otherDiseases" id="otherDiseasesYes" value="Yes">
+                       <label class="form-check-label" for="otherDiseasesYes">Yes</label><br>
+
+                   <input class="form-check-input" type="radio" name="otherDiseases" id="otherDiseasesNo" value="No">
+                      <label class="form-check-label" for="otherDiseasesNo">No</label><br></td>
+            </tr>
+            <tr>
+              <td><label for="diseases">Enter any other health issue if you answered yes.</label></td>
+              <td><input type="text" class="form-control" id="inputOtherHealthIssue"></td>
             </tr></table><br>
         </div>
       </div>
@@ -185,17 +193,11 @@
                       event.preventDefault();
                       event.stopPropagation();
                     }
-                    console.log($('#healthSurveyForm').serialize());
                     form.classList.add('was-validated');
                   }, false);
                 });
               }, false);
       })();
-      $( "form" ).on( "submit", function( event ) {
-        event.preventDefault();
-        var form=$('#healthSurveyForm');
-        console.log(form.serialize());
-        });
       $(document).ready(function () {
        $('<div/>', {
          'class' : 'extraPerson', html: GetHtml()
