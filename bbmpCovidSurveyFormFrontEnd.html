@@ -138,8 +138,8 @@
                       <label class="form-check-label" for="otherDiseasesNo">No</label><br></td>
             </tr>
             <tr>
-              <td><label for="diseases">Enter any other health issue if you answered yes.</label></td>
-              <td><input type="text" class="form-control" id="inputOtherHealthIssue"></td>
+              <td><label for="inputOtherHealthIssue">Enter any other health issue if you answered yes.</label></td>
+              <td><input type="text" class="form-control" name="inputOtherHealthIssue" id="inputOtherHealthIssue"></td>
             </tr></table><br>
         </div>
       </div>
@@ -241,7 +241,8 @@
         $html.find('[name=gender]')[0].name="gender" + len;
         $html.find('[name=inputPhoneNumber]')[0].name="inputPhoneNumber" + len;
         $html.find('[name=inputWhatsAppNumber]')[0].name="inputWhatsAppNumber" + len;
-        $html.find(['[name=diseases]')[0].name="diseases" +len;
+        $html.find('[name=diseases]')[0].name="diseases" + len;
+        $html.find(['[name=otherDiseases]')[0].name="otherDiseases"+ len;
         $html.find(['[name=inputOtherHealthIssue]')[0].name="inputOtherHealthIssue" + len;
         return $html.html();
       }
