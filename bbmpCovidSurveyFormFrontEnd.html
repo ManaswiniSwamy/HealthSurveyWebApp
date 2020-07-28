@@ -193,6 +193,7 @@
                       event.preventDefault();
                       event.stopPropagation();
                     }
+                    console.log($('#healthSurveyForm').serialize());
                     form.classList.add('was-validated');
                   }, false);
                 });
@@ -238,12 +239,17 @@
         console.log(len)
         var $html = $('.extraPersonTemplate').clone();
         $html.find('[name=inputName]')[0].name="inputName" + len;
+        $html.find('[name=gender]').each(function() {
+          $(this)[0].name="gender" + len;
+        });
         $html.find('[name=gender]')[0].name="gender" + len;
         $html.find('[name=inputPhoneNumber]')[0].name="inputPhoneNumber" + len;
         $html.find('[name=inputWhatsAppNumber]')[0].name="inputWhatsAppNumber" + len;
-        $html.find('[name=diseases]')[0].name="diseases" + len;
-        $html.find(['[name=otherDiseases]')[0].name="otherDiseases"+ len;
-        $html.find(['[name=inputOtherHealthIssue]')[0].name="inputOtherHealthIssue" + len;
+        $html.find('[name=diseases]').each(function() {
+          $(this)[0].name="diseases" + len;
+        });
+        $html.find('[name=otherDiseases]')[0].name="otherDiseases"+ len;
+        $html.find('[name=inputOtherHealthIssue]')[0].name="inputOtherHealthIssue" + len;
         return $html.html();
       }
       function GetHtmlHouseHelp(){
