@@ -157,16 +157,16 @@
           <div class="form-row ml-2">
             <div class="form-group col-md-4">
               <label for="inputNameHouseholdHelp">Name</label>
-              <input type="text" class="form-control" id="inputNameHouseholdHelp">
+              <input type="text" class="form-control" name="inputNameHouseholdHelp" id="inputNameHouseholdHelp">
             </div>
             <div class="form-group col-md-4">
               <label for="inputPhoneNumberHouseholdHelp">Phone number</label>
-              <input type="tel" class="form-control" id="inputPhoneNumberHouseholdHelp">
+              <input type="tel" class="form-control" name="inputPhoneNumberHouseholdHelp" id="inputPhoneNumberHouseholdHelp">
             </div>
           </div>
           <div class="form-group col-md-8">
             <label for="inputAddressHouseholdHelp">Address</label>
-            <input type="text" class="form-control" id="inputAddressHouseholdHelp">
+            <input type="text" class="form-control" name="inputAddressHouseholdHelp" id="inputAddressHouseholdHelp">
           </div>
         </div>
         <div class="containerHouseHelp" align="left"></div>
@@ -260,6 +260,9 @@
         var len = $('.extraHouseHelp').length;
         if(len==0)return;
         var $html = $('.extraHouseholdHelpTemplate').clone();
+        $html.find('[name=inputNameHouseholdHelp]')[0].name="inputNameHouseholdHelp" + len;
+        $html.find('[name=inputPhoneNumberHouseholdHelp]')[0].name="inputPhoneNumberHouseholdHelp" + len;
+        $html.find('[name=inputAddressHouseholdHelp]')[0].name="inputAddressHouseholdHelp" + len;
         return $html.html();
       }
 
