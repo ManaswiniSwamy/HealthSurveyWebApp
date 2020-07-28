@@ -80,7 +80,11 @@
                 <td><label for="inputName">Name</label></td>
                 <td><input type="text" class="form-control" name= "inputName" id="inputName"></td>
               </tr>
-             <tr>
+              <tr>
+                <td><label for="inputAge">Age</label></td>
+                <td><input type="number" class="form-control" name= "inputAge" id="inputAge"></td>
+              </tr>
+              <tr>
                <td><label for="inputGender">Gender</label></td>
                <td><input class="form-check-input" type="radio" name="gender" id="Male" value="Male">
                        <label class="form-check-label" for="Male">Male</label><br>
@@ -239,6 +243,7 @@
         console.log(len)
         var $html = $('.extraPersonTemplate').clone();
         $html.find('[name=inputName]')[0].name="inputName" + len;
+        $html.find('[name=inputAge]')[0].name="inputAge" + len;
         $html.find('[name=gender]').each(function() {
           $(this)[0].name="gender" + len;
         });
