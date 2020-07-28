@@ -78,7 +78,7 @@
           <table id = "residents" class = "residentsTemplate ml-2">
               <tr>
                 <td><label for="inputName">Name</label></td>
-                <td><input type="text" class="form-control" id="inputName"></td>
+                <td><input type="text" class="form-control" name= "inputName" id="inputName"></td>
               </tr>
              <tr>
                <td><label for="inputGender">Gender</label></td>
@@ -93,39 +93,39 @@
             </tr>
             <tr>
               <td><label for="inputPhoneNumber">Phone number</label></td>
-              <td><input type="tel" class="form-control" id="inputPhoneNumber"></td>
+              <td><input type="tel" class="form-control" name="inputPhoneNumber" id="inputPhoneNumber"></td>
             </tr>
             <tr>
               <td><label for="inputWhatsAppNumber">WhatsApp number</label></td>
-              <td><input type="tel" class="form-control" id="inputWhatsAppNumber"></td>
+              <td><input type="tel" class="form-control" name="inputWhatsAppNumber" id="inputWhatsAppNumber"></td>
             </tr>
             <tr>
               <td><label for="diseases">Please check the diseases/health conditions that you are suffering from</label></td>
-              <td><input class="form-check-input" type="checkbox" id="pregnantWoman" value="pregnantWoman">
+              <td><input class="form-check-input" type="checkbox" name="diseases" id="pregnantWoman" value="pregnantWoman">
                   <label class="form-check-label" for="pregnantWoman">Pregnant Woman</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="diabetes" value="diabetes">
+                  <input class="form-check-input" type="checkbox" name="diseases" id="diabetes" value="diabetes">
                   <label class="form-check-label" for="diabetes">Diabetes</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="hypertension" value="hypertension">
+                  <input class="form-check-input" type="checkbox" name="diseases" id="hypertension" value="hypertension">
                   <label class="form-check-label" for="hypertension">Hypertension</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="tuberculosis" value="tuberculosis">
+                  <input class="form-check-input" type="checkbox" id="tuberculosis" name="diseases" value="tuberculosis">
                   <label class="form-check-label" for="tuberculosis">Tuberculosis</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="cancer" value="cancer">
+                  <input class="form-check-input" type="checkbox" id="cancer" name="diseases" value="cancer">
                   <label class="form-check-label" for="cancer">Cancer</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="dialysis" value="dialysis">
+                  <input class="form-check-input" type="checkbox" id="dialysis" name="diseases" value="dialysis">
                   <label class="form-check-label" for="dialysis">Dialysis</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="stroke" value="stroke">
+                  <input class="form-check-input" type="checkbox" id="stroke" name="diseases" value="stroke">
                   <label class="form-check-label" for="stroke">Stroke</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="hivPositive" value="hivPositive">
+                  <input class="form-check-input" type="checkbox" id="hivPositive" name="diseases" value="hivPositive">
                   <label class="form-check-label" for="hivPositive">HIV Positive</label><br>
 
-                  <input class="form-check-input" type="checkbox" id="organTransplant" value="organTransplant">
+                  <input class="form-check-input" type="checkbox" id="organTransplant" name="diseases" value="organTransplant">
                   <label class="form-check-label" for="organTransplant">Organ Transplant</label><br>
               </td>
             </tr>
@@ -138,8 +138,8 @@
                       <label class="form-check-label" for="otherDiseasesNo">No</label><br></td>
             </tr>
             <tr>
-              <td><label for="diseases">Enter any other health issue if you answered yes.</label></td>
-              <td><input type="text" class="form-control" id="inputOtherHealthIssue"></td>
+              <td><label for="inputOtherHealthIssue">Enter any other health issue if you answered yes.</label></td>
+              <td><input type="text" class="form-control" name="inputOtherHealthIssue" id="inputOtherHealthIssue"></td>
             </tr></table><br>
         </div>
       </div>
@@ -193,6 +193,7 @@
                       event.preventDefault();
                       event.stopPropagation();
                     }
+                    console.log($('#healthSurveyForm').serialize());
                     form.classList.add('was-validated');
                   }, false);
                 });
@@ -237,6 +238,18 @@
         if(len==0)return;
         console.log(len)
         var $html = $('.extraPersonTemplate').clone();
+        $html.find('[name=inputName]')[0].name="inputName" + len;
+        $html.find('[name=gender]').each(function() {
+          $(this)[0].name="gender" + len;
+        });
+        $html.find('[name=gender]')[0].name="gender" + len;
+        $html.find('[name=inputPhoneNumber]')[0].name="inputPhoneNumber" + len;
+        $html.find('[name=inputWhatsAppNumber]')[0].name="inputWhatsAppNumber" + len;
+        $html.find('[name=diseases]').each(function() {
+          $(this)[0].name="diseases" + len;
+        });
+        $html.find('[name=otherDiseases]')[0].name="otherDiseases"+ len;
+        $html.find('[name=inputOtherHealthIssue]')[0].name="inputOtherHealthIssue" + len;
         return $html.html();
       }
       function GetHtmlHouseHelp(){
