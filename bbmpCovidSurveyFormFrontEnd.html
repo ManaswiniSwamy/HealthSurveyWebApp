@@ -31,7 +31,7 @@
     <div class="form-box">
       <h2 class="text-center">BBMP Health Survey Form</h2>
       <h5>Please enter your address and contact details.</h5>
-      <form class="needs-validation" id="healthSurveyForm" novalidate>
+      <form class="needs-validation" name="healthSurveyForm" id="healthSurveyForm" method="post" action="http://localhost/bbmp/connection_page.php" novalidate>
         <div class="form-row ml-2">
           <div class="form-group col-md-2">
             <label for="inputFlatNumber">Flat number</label>
@@ -175,6 +175,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
       (function() {
         'use strict';
@@ -188,12 +189,29 @@
                       event.preventDefault();
                       event.stopPropagation();
                     }
-                    console.log($('#healthSurveyForm').serialize());
                     form.classList.add('was-validated');
                   }, false);
                 });
               }, false);
       })();
+      $("#healthSurveyForm").submit(function(event) {
+        event.preventDefault();
+        var lenExtraPerson = $('.extraPerson').length;
+        var lenExtraHouseholdHelp = $('.extraHouseHelp').length;
+        var form = $(this);
+        var url = form.attr('action');
+        var formData = form.serialize() + "&extraPersonCount=" + lenExtraPerson + "&extraHouseHelpCount=" + lenExtraHouseholdHelp;
+        console.log(formData);
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: formData,
+          success: function(data){
+            alert(data);
+          }
+        });
+        return false;
+      });
       $(document).ready(function () {
        $('<div/>', {
          'class' : 'extraPerson', html: GetHtml()
