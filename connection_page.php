@@ -5,8 +5,6 @@ if(isset($_REQUEST))
 $conn = OpenCon();
 echo "Connected Successfully";
 
-$extraHouseHelpCount = $_POST['extraHouseHelpCount'];
-
 // Family level details.
 $inputFlatNumber = $_POST['inputFlatNumber'];
 $inputAddress = $_POST['inputAddress'];
@@ -20,13 +18,12 @@ $sql = "INSERT INTO temp(inputFlatNumber,inputAddress,inputAddress2,inputCity,in
 
 $result = mysqli_query($conn,$sql);
 if($result) {
-	echo "Family details have been appended successfully.";
+  echo "Family details have been appended successfully.";
 } else echo mysqli_error($conn);
 
 // Family member specific details
 // Count of the total number of family members.
 $extraPersonCount = $_POST['extraPersonCount'];
-$resultFamilyMembers = true;
 for ($extraPersonIndex = 0; $extraPersonIndex < $extraPersonCount; $extraPersonIndex++) {
   $inputName = ($extraPersonIndex == 0) ? $_POST['inputName'] : $_POST['inputName'.$extraPersonIndex];
   $inputAge = ($extraPersonIndex == 0) ? $_POST['inputAge'] : $_POST['inputAge'.$extraPersonIndex];
@@ -46,27 +43,37 @@ for ($extraPersonIndex = 0; $extraPersonIndex < $extraPersonCount; $extraPersonI
   $hivPositive = 0;
   $organTransplant = 0;
   foreach ($diseases as $key => $value) {
-  	echo $value;
-  	echo "      nnnnnn";
-  	if($value == "pregnantWoman") $pregnantWoman = 1;
-  	else if($value == "diabetes") $diabetes = 1;
-  	else if($value == "hypertension") $hypertension = 1;
-  	else if($value == "tuberculosis") $tuberculosis = 1;
-  	else if($value == "cancer") $cancer = 1;
-  	else if($value == "dialysis") $dialysis = 1;
-  	else if($value == "stroke") $stroke = 1;
-  	else if($value == "hivPositive") $hivPositive = 1;
-  	else if($value == "organTransplant") $organTransplant = 1;
+    if($value == "pregnantWoman") $pregnantWoman = 1;
+    else if($value == "diabetes") $diabetes = 1;
+    else if($value == "hypertension") $hypertension = 1;
+    else if($value == "tuberculosis") $tuberculosis = 1;
+    else if($value == "cancer") $cancer = 1;
+    else if($value == "dialysis") $dialysis = 1;
+    else if($value == "stroke") $stroke = 1;
+    else if($value == "hivPositive") $hivPositive = 1;
+    else if($value == "organTransplant") $organTransplant = 1;
   }
   $sql = "INSERT INTO family_member_table(inputName, inputAge, inputGender, inputPhoneNumber, inputWhatsAppNumber, otherDiseases, inputOtherHealthIssue, inputFamilyPhoneNumber, pregnantWoman, diabetes, hypertension,tuberculosis, cancer, dialysis, stroke, hivPositive, organTransplant) VALUES ('$inputName', '$inputAge', '$inputGender', '$inputPhoneNumber', '$inputWhatsAppNumber', '$otherDiseases', '$inputOtherHealthIssue', '$inputFamilyPhoneNumber', '$pregnantWoman', '$diabetes', '$hypertension', '$tuberculosis', '$cancer', '$dialysis', '$stroke', '$hivPositive', '$organTransplant')";
   $result = mysqli_query($conn,$sql);
   if($result) {
-	echo "Family member details have been appended successfully.";
-	}
-else echo mysqli_error($conn);
+  echo "Family member details have been appended successfully.";
+  } else echo mysqli_error($conn);
 }
 
-echo $extraHouseHelpCount;
+// Household help specific details
+// Count of household helps.
+$extraHouseHelpCount = $_POST['extraHouseHelpCount'];
+for($extraHouseHelpIndex = 0; $extraHouseHelpIndex < $extraHouseHelpCount; $extraHouseHelpIndex++){
+  $inputNameHouseholdHelp = $extraHouseHelpIndex == 0 ? (isset($_POST['inputNameHouseholdHelp']) ? $_POST['inputNameHouseholdHelp'] : "" ): (isset($_POST['inputNameHouseholdHelp'.$extraHouseHelpIndex]) ? $_POST['inputNameHouseholdHelp'.$extraHouseHelpIndex] : "");
+  $inputPhoneNumberHouseholdHelp = $extraHouseHelpIndex == 0 ? (isset($_POST['inputPhoneNumberHouseholdHelp']) ? $_POST['inputPhoneNumberHouseholdHelp']: "") : (isset($_POST['inputPhoneNumberHouseholdHelp'.$extraHouseHelpIndex]) ? $_POST['inputPhoneNumberHouseholdHelp'.$extraHouseHelpIndex] : "");
+  $inputAddressHouseholdHelp = $extraHouseHelpIndex == 0 ? (isset($_POST['inputAddressHouseholdHelp']) ? $_POST['inputAddressHouseholdHelp'] : "") : (isset($_POST['inputAddressHouseholdHelp'.$extraHouseHelpIndex]) ? $_POST['inputAddressHouseholdHelp'.$extraHouseHelpIndex] : "");
+
+  $sql = "INSERT INTO household_help_table(inputFamilyPhoneNumber, inputNameHouseholdHelp,inputPhoneNumberHouseholdHelp,inputAddressHouseholdHelp) VALUES ('$inputFamilyPhoneNumber', '$inputNameHouseholdHelp', '$inputPhoneNumberHouseholdHelp', '$inputAddressHouseholdHelp')";
+  $result = mysqli_query($conn, $sql);
+  if($result) {
+    echo "Household help details appended successfully";
+  }else echo mysqli_error($conn);
+}
 }
 CloseCon($conn);
 ?>
