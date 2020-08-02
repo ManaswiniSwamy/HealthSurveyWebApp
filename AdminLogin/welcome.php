@@ -30,6 +30,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <a> Click the button to view health data of all household helps.</a>
         <a href="viewhouseholdhelpdata.php" class="btn btn-primary"> View health Data. </a></br>
     </p>
+    <form action="editdetails.php" method="get">
+        <p>
+            <div class="form-group col-md-6">
+            <label for="inputEditFamilyPhoneNumber">Family Phone number</label>
+            <input type="tel" class="form-control" name="inputEditFamilyPhoneNumber" id="inputEditFamilyPhoneNumber">
+          </div></p>
+          <p>
+          <div class="form-row">
+                </br><a> Click the button to edit the health details of a family. </a>
+                <button type="submit" class="btn btn-primary submit">Edit</button>
+        </div></p></br>
+    </form>
+    <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
     </p>
